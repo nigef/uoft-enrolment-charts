@@ -3,5 +3,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# pyenv
+.python-version
+
 # OS stuff
 .DS_Store

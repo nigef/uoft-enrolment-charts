@@ -7,5 +7,5 @@ Generates charts of course enrolment numbers from data scraped by
 
 ## Requirements
 
-- [Python 3](https://www.python.org/)
+- [Python](https://www.python.org/)
 - [Gnuplot](http://gnuplot.info/)

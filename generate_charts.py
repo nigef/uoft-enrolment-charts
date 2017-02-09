@@ -103,7 +103,6 @@ def plot_course(course_id, course_dept, meetings):
     plots = []
     for meeting_id, meeting_data in meetings:
         plots.append('"-" u 1:2 t "{0}" w lp'.format(meeting_id))
-        # plots.append('"" with labels center offset 3.4,.5 notitle')
 
     cmds.append('plot ' + ', '.join(plots))
 
