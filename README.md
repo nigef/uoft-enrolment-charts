@@ -1,9 +1,8 @@
 # uoft-enrolment-charts
 
-Scripts to generate charts of course enrolment from data scraped from the
-[University of Toronto Faculty of Arts and Science timetable](https://timetable.iit.artsci.utoronto.ca/).
-
-Some data can be found here: https://github.com/freeatnet/uoft-timetable-archive
+Generates charts of course enrolment numbers from data scraped by
+[uoft-timetable-archive](https://github.com/freeatnet/uoft-timetable-archive)
+(from the [University of Toronto Faculty of Arts and Science timetable](https://timetable.iit.artsci.utoronto.ca/)).
 
 
 ## Requirements

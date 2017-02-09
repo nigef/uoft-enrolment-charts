@@ -6,6 +6,7 @@ import os
 import subprocess
 import sys
 
+output_dir = './charts'
 dates = []
 enrolment_data = {}
 
@@ -38,8 +39,10 @@ def parse_file(file_path):
         # Every course
         for course_id, course_data in data.items():
             # Ensure subdirectory exists for department
-            # if not os.path.exists(args.output):
-            #     os.makedirs(args.output)
+            department = course_data['org']
+            department_dir = os.path.join(output_dir, department)
+            if not os.path.exists(department_dir):
+                os.makedirs(department_dir)
 
             # Fetch all enrolment data for each meeting section
             for meeting_id, meeting_data in course_data['meetings'].items():
@@ -48,12 +51,14 @@ def parse_file(file_path):
 
                 if not course_id in enrolment_data:
                     enrolment_data[course_id] = {}
+                    enrolment_data[course_id]['dept'] = department
+                    enrolment_data[course_id]['meetings'] = {}
 
-                if not meeting_id in enrolment_data[course_id]:
-                    enrolment_data[course_id][meeting_id] = []
+                if not meeting_id in enrolment_data[course_id]['meetings']:
+                    enrolment_data[course_id]['meetings'][meeting_id] = []
 
                 enrolment = int(meeting_data['actualEnrolment'])
-                enrolment_data[course_id][meeting_id].append(enrolment)
+                enrolment_data[course_id]['meetings'][meeting_id].append(enrolment)
 
 def gnuplot_exec(cmds, data):
     """
@@ -68,7 +73,7 @@ def gnuplot_exec(cmds, data):
 
     return program
 
-def plot_course(course_id, meetings, output_dir):
+def plot_course(course_id, course_dept, meetings):
     """
     Plots the given course data with gnuplot.
     """
@@ -81,7 +86,7 @@ def plot_course(course_id, meetings, output_dir):
         'set logscale y 2',
         'set key below',
         'set term jpeg small size 800,450',
-        'set output "{0}/{1}.jpg"'.format(output_dir, course_id)
+        'set output "{0}/{1}/{2}.jpg"'.format(output_dir, course_dept, course_id)
     ]
 
     # Each meeting section is a new plot
@@ -108,13 +113,12 @@ if __name__ == '__main__':
         exit(1)
 
     folder = sys.argv[1]
-    output = './charts'
     if len(sys.argv) == 3:
-        output = sys.argv[2]
+        output_dir = sys.argv[2]
 
     # Ensure output directory exists
-    if not os.path.exists(output):
-        os.makedirs(output)
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
 
     # Aggregate enrolment counts for each date for every course
     file_names = get_json_files(folder)
@@ -128,4 +132,4 @@ if __name__ == '__main__':
 
     # Generate some charts with the enrolment data
     for course_id, course_data in enrolment_data.items():
-        plot_course(course_id, course_data.items(), output)
+        plot_course(course_id, course_data['dept'], course_data['meetings'].items())
