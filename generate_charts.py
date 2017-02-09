@@ -86,7 +86,6 @@ def plot_course(course_id, course_dept, meetings):
     """
     cmds = [
         'set grid',
-        'set datafile separator ";"',
         'set title "{0} ({1} - {2})"'.format(course_id, dates[0], dates[-1]),
         'set xdata time',
         'set timefmt "%Y-%m-%d"',
@@ -105,16 +104,16 @@ def plot_course(course_id, course_dept, meetings):
 
     cmds.append('plot ' + ', '.join(plots))
 
-    data = []
+    plot_data = []
     for meeting_id, meeting_data in meetings:
         # We ignore a meeting if all of its points are just 0
-        if sum(meeting_data) != 0:
+        if not all(p == 0 for p in meeting_data):
             for i in range(len(meeting_data)):
-                    data.append('{0};{1};'.format(dates[i], meeting_data[i]))
-            data.append('e')
+                plot_data.append('{0} {1}'.format(dates[i], meeting_data[i]))
+            plot_data.append('e')
 
-    if len(data) > 0:
-        gnuplot_exec(cmds, data)
+    if len(plot_data) > 0:
+        gnuplot_exec(cmds, plot_data)
 
 
 if __name__ == '__main__':
