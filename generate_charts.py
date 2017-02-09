@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import datetime
 import json
 import os
@@ -15,16 +17,31 @@ def get_json_files(dir_path):
     """
     return [f for f in os.listdir(dir_path) if f.endswith('.json')]
 
+def file_name_to_iso(file_name):
+    """
+
+    """
+    epoch = int(file_name.split('.json')[0])
+    iso_date = datetime.datetime.fromtimestamp(epoch).isoformat()
+    return iso_date.split('T')[0]
+
 def parse_file(file_path):
     """
     Parses a JSON file, tracking the enrolment count for each course/meeting.
 
     (str) -> None
     """
+    # This is a SINGLE day's worth of data
     with open(file_path) as data_file:
         data = json.load(data_file)
 
+        # Every course
         for course_id, course_data in data.items():
+            # Ensure subdirectory exists for department
+            # if not os.path.exists(args.output):
+            #     os.makedirs(args.output)
+
+            # Fetch all enrolment data for each meeting section
             for meeting_id, meeting_data in course_data['meetings'].items():
                 if not 'actualEnrolment' in meeting_data:
                     continue
@@ -51,7 +68,7 @@ def gnuplot_exec(cmds, data):
 
     return program
 
-def plot_course(course_id, meetings):
+def plot_course(course_id, meetings, output_dir):
     """
     Plots the given course data with gnuplot.
     """
@@ -64,7 +81,7 @@ def plot_course(course_id, meetings):
         'set logscale y 2',
         'set key below',
         'set term jpeg small size 800,450',
-        'set output "charts/{0}.jpg"'.format(course_id)
+        'set output "{0}/{1}.jpg"'.format(output_dir, course_id)
     ]
 
     # Each meeting section is a new plot
@@ -86,23 +103,24 @@ def plot_course(course_id, meetings):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print('Usage: %s [JSON data folder]' % sys.argv[0])
+    if 2 > len(sys.argv) or len(sys.argv) > 3:
+        print('Usage: %s <JSON data directory> [output directory]' % sys.argv[0])
         exit(1)
 
     folder = sys.argv[1]
+    output = './charts'
+    if len(sys.argv) == 3:
+        output = sys.argv[2]
 
-    # TODO: make this an optional argument
-    if not os.path.exists('./charts'):
-        os.makedirs('./charts')
+    # Ensure output directory exists
+    if not os.path.exists(output):
+        os.makedirs(output)
 
     # Aggregate enrolment counts for each date for every course
     file_names = get_json_files(folder)
     for file_name in file_names:
         # Date
-        epoch = int(file_name.split('.json')[0])
-        iso_date = datetime.datetime.fromtimestamp(epoch).isoformat()
-        dates.append(iso_date.split('T')[0])
+        dates.append(file_name_to_iso(file_name))
 
         # Course data
         file_path = os.path.join(folder, file_name)
@@ -110,4 +128,4 @@ if __name__ == '__main__':
 
     # Generate some charts with the enrolment data
     for course_id, course_data in enrolment_data.items():
-        plot_course(course_id, course_data.items())
+        plot_course(course_id, course_data.items(), output)
