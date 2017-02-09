@@ -83,7 +83,10 @@ def gnuplot_exec(cmds, data):
 def plot_course(course_id, course_dept, meetings):
     """
     Plots the given course data with gnuplot.
+
+    (str, str, [meetings]) -> None
     """
+    # gnuplot config
     cmds = [
         'set grid',
         'set title "{0} ({1} - {2})"'.format(course_id, dates[0], dates[-1]),
@@ -96,7 +99,7 @@ def plot_course(course_id, course_dept, meetings):
         'set output "{0}/{1}/{2}.jpg"'.format(output_dir, course_dept, course_id)
     ]
 
-    # Each meeting section is a new plot
+    # Init plot for each meeting section
     plots = []
     for meeting_id, meeting_data in meetings:
         plots.append('"-" u 1:2 t "{0}" w lp'.format(meeting_id))
@@ -104,6 +107,7 @@ def plot_course(course_id, course_dept, meetings):
 
     cmds.append('plot ' + ', '.join(plots))
 
+    # Add plot data
     plot_data = []
     for meeting_id, meeting_data in meetings:
         # We ignore a meeting if all of its points are just 0
@@ -121,7 +125,7 @@ if __name__ == '__main__':
         print('Usage: %s <JSON data directory> [output directory]' % sys.argv[0])
         exit(1)
 
-    folder = sys.argv[1]
+    data_folder = sys.argv[1]
     if len(sys.argv) == 3:
         output_dir = sys.argv[2]
 
@@ -130,13 +134,13 @@ if __name__ == '__main__':
         os.makedirs(output_dir)
 
     # Aggregate enrolment counts for each date for every course
-    file_names = get_json_files(folder)
+    file_names = get_json_files(data_folder)
     for file_name in file_names:
         # Date
         dates.append(file_name_to_iso(file_name))
 
         # Course data
-        file_path = os.path.join(folder, file_name)
+        file_path = os.path.join(data_folder, file_name)
         parse_file(file_path)
 
     # Generate some charts with the enrolment data
