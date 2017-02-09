@@ -20,7 +20,10 @@ def get_json_files(dir_path):
 
 def file_name_to_iso(file_name):
     """
+    Converts a file name to an ISO8601 representation of the date.
+    For example: "1482515984.json" -> "2016-12-22"
 
+    (str) -> str
     """
     epoch = int(file_name.split('.json')[0])
     iso_date = datetime.datetime.fromtimestamp(epoch).isoformat()
@@ -60,6 +63,10 @@ def parse_file(file_path):
                 enrolment = int(meeting_data['actualEnrolment'])
                 enrolment_data[course_id]['meetings'][meeting_id].append(enrolment)
 
+                # TODO:
+                # enrollmentCapacity
+                # actualWaitlist
+
 def gnuplot_exec(cmds, data):
     """
     Runs gnuplot with the given commands.
@@ -79,11 +86,12 @@ def plot_course(course_id, course_dept, meetings):
     """
     cmds = [
         'set grid',
+        'set datafile separator ";"',
         'set title "{0} ({1} - {2})"'.format(course_id, dates[0], dates[-1]),
         'set xdata time',
         'set timefmt "%Y-%m-%d"',
         'set ylabel "Enrolment"',
-        'set logscale y 2',
+        # 'set logscale y 2',
         'set key below',
         'set term jpeg small size 800,450',
         'set output "{0}/{1}/{2}.jpg"'.format(output_dir, course_dept, course_id)
@@ -93,15 +101,17 @@ def plot_course(course_id, course_dept, meetings):
     plots = []
     for meeting_id, meeting_data in meetings:
         plots.append('"-" u 1:2 t "{0}" w lp'.format(meeting_id))
+        # plots.append('"" with labels center offset 3.4,.5 notitle')
 
     cmds.append('plot ' + ', '.join(plots))
 
     data = []
     for meeting_id, meeting_data in meetings:
-        for i in range(len(meeting_data)):
-            if sum(meeting_data) != 0:
-                data.append('{0} {1}'.format(dates[i], meeting_data[i]))
-        data.append('e')
+        # We ignore a meeting if all of its points are just 0
+        if sum(meeting_data) != 0:
+            for i in range(len(meeting_data)):
+                    data.append('{0};{1};'.format(dates[i], meeting_data[i]))
+            data.append('e')
 
     if len(data) > 0:
         gnuplot_exec(cmds, data)
