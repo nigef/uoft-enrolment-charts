@@ -1,5 +1,5 @@
 #!/bin/bash
-python ./generate-charts.py ../uoft-timetable-archive/201701/
+python ./generate_charts.py ../uoft-timetable-archive/201701/
 
 git pull --rebase
 git add .
