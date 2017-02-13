@@ -93,6 +93,7 @@ def plot_course(course_id, course_dept, meetings):
         'set xdata time',
         'set timefmt "%Y-%m-%d"',
         'set ylabel "Enrolment"',
+        'set ytics 1',
         'set offset graph 0.05, 0.05, 0.05, 0.05',
         'set key below',
         'set term jpeg small size 800,450',
