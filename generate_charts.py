@@ -92,7 +92,7 @@ def plot_course(course_id, course_dept, sections):
         'set timefmt "%Y-%m-%d"',
         'set offset graph 0.05, 0.05, 0.05, 0.05',
         'set key below',
-        'set terminal svg size 800,450 fsize 10',
+        'set terminal svg size 800,450 fsize 10 enhanced background rgb "white"',
         'set output "{0}/{1}/{2}.svg"'.format(output_dir, course_dept, course_id)
     ]
 
