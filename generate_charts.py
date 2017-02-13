@@ -55,17 +55,15 @@ def parse_file(file_path):
                 if not course_id in enrolment_data:
                     enrolment_data[course_id] = {}
                     enrolment_data[course_id]['dept'] = department
-                    enrolment_data[course_id]['meetings'] = {}
+                    enrolment_data[course_id]['sections'] = {}
 
-                if not meeting_id in enrolment_data[course_id]['meetings']:
-                    enrolment_data[course_id]['meetings'][meeting_id] = []
+                if not meeting_id in enrolment_data[course_id]['sections']:
+                    enrolment_data[course_id]['sections'][meeting_id] = []
 
+                space     = int(meeting_data['enrollmentCapacity'])
                 enrolment = int(meeting_data['actualEnrolment'])
-                enrolment_data[course_id]['meetings'][meeting_id].append(enrolment)
-
-                # TODO:
-                # enrollmentCapacity
-                # actualWaitlist
+                waitlist  = int(meeting_data['actualWaitlist'])
+                enrolment_data[course_id]['sections'][meeting_id].append((space, enrolment, waitlist))
 
 def gnuplot_exec(cmds, data):
     """
@@ -80,11 +78,11 @@ def gnuplot_exec(cmds, data):
 
     return program
 
-def plot_course(course_id, course_dept, meetings):
+def plot_course(course_id, course_dept, sections):
     """
     Plots the given course data with gnuplot.
 
-    (str, str, [meetings]) -> None
+    (str, str, [sections]) -> None
     """
     # gnuplot config
     cmds = [
@@ -92,28 +90,26 @@ def plot_course(course_id, course_dept, meetings):
         'set title "{0} ({1} - {2})"'.format(course_id, dates[0], dates[-1]),
         'set xdata time',
         'set timefmt "%Y-%m-%d"',
-        'set ylabel "Enrolment"',
-        'set ytics 1',
         'set offset graph 0.05, 0.05, 0.05, 0.05',
         'set key below',
-        'set term jpeg small size 800,450',
-        'set output "{0}/{1}/{2}.jpg"'.format(output_dir, course_dept, course_id)
+        'set terminal svg size 800,450 fsize 10',
+        'set output "{0}/{1}/{2}.svg"'.format(output_dir, course_dept, course_id)
     ]
 
     # Init plot for each meeting section
     plots = []
-    for meeting_id, meeting_data in meetings:
-        plots.append('"-" u 1:2 t "{0}" w lp'.format(meeting_id))
+    for section_id, section_data in sections:
+        plots.append('"-" u 1:2 t "{0} (enrolled)" w lp'.format(section_id))
 
     cmds.append('plot ' + ', '.join(plots))
 
     # Add plot data
     plot_data = []
-    for meeting_id, meeting_data in meetings:
+    for section_id, section_data in sections:
         # We ignore a meeting if all of its points are just 0
-        if not all(p == 0 for p in meeting_data):
-            for i in range(len(meeting_data)):
-                plot_data.append('{0} {1}'.format(dates[i], meeting_data[i]))
+        if not all(p == 0 for p in section_data):
+            for i in range(len(section_data)):
+                plot_data.append('{0} {1}'.format(dates[i], section_data[i][0]))
             plot_data.append('e')
 
     if len(plot_data) > 0:
@@ -145,4 +141,4 @@ if __name__ == '__main__':
 
     # Generate some charts with the enrolment data
     for course_id, course_data in enrolment_data.items():
-        plot_course(course_id, course_data['dept'], course_data['meetings'].items())
+        plot_course(course_id, course_data['dept'], course_data['sections'].items())
