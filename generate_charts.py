@@ -109,7 +109,7 @@ def plot_course(course_id, course_dept, sections):
         # We ignore a meeting if all of its points are just 0
         if not all(p == 0 for p in section_data):
             for i in range(len(section_data)):
-                plot_data.append('{0} {1}'.format(dates[i], section_data[i][0]))
+                plot_data.append('{0} {1}'.format(dates[i], section_data[i][1]))
             plot_data.append('e')
 
     if len(plot_data) > 0:
