@@ -336,7 +336,7 @@
 	<path stroke='black'  d='M38.5,45.1 L38.5,405.0 L778.9,405.0 L778.9,45.1 L38.5,45.1 Z  '/></g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 	<g transform="translate(408.7,25.9)" stroke="none" fill="black" font-family="Arial" font-size="10.00"  text-anchor="middle">
-		<text><tspan font-family="Arial" >HIS364H1-S-20171 (2016-12-23 - 2017-02-14)</tspan></text>
+		<text><tspan font-family="Arial" >HIS364H1-S-20171 (2016-12-23 - 2017-02-15)</tspan></text>
 	</g>
 </g>
 	<g id="gnuplot_plot_1" ><title>LEC-0101 (enrolled)</title>
@@ -353,7 +353,7 @@
 		L485.1,125.1 L496.8,125.1 L508.6,165.1 L520.3,205.1 L532.1,205.1 L543.9,205.1 L555.6,205.1 L567.4,205.1
 		L579.1,205.1 L590.9,245.0 L602.6,285.0 L614.4,325.0 L626.1,325.0 L637.9,325.0 L649.6,325.0 L661.4,325.0
 		L673.1,325.0 L684.9,365.0 L696.6,365.0 L708.4,365.0 L720.1,365.0 L731.9,365.0 L743.6,365.0 L755.4,365.0
-		 '/>	<use xlink:href='#gpPt0' transform='translate(132.5,85.1) scale(3.75)' color='rgb(148,   0, 211)'/>
+		L767.1,365.0  '/>	<use xlink:href='#gpPt0' transform='translate(132.5,85.1) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(132.5,85.1) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(144.3,85.1) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(156.0,85.1) scale(3.75)' color='rgb(148,   0, 211)'/>
@@ -408,6 +408,7 @@
 	<use xlink:href='#gpPt0' transform='translate(731.9,365.0) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(743.6,365.0) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(755.4,365.0) scale(3.75)' color='rgb(148,   0, 211)'/>
+	<use xlink:href='#gpPt0' transform='translate(767.1,365.0) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(475.1,435.0) scale(3.75)' color='rgb(148,   0, 211)'/>
 </g>
 	</g>

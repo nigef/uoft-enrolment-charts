@@ -362,7 +362,7 @@
 	<path stroke='black'  d='M45.5,45.1 L45.5,405.0 L778.9,405.0 L778.9,45.1 L45.5,45.1 Z  '/></g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 	<g transform="translate(412.2,25.9)" stroke="none" fill="black" font-family="Arial" font-size="10.00"  text-anchor="middle">
-		<text><tspan font-family="Arial" >CSC121H1-S-20171 (2016-12-23 - 2017-02-14)</tspan></text>
+		<text><tspan font-family="Arial" >CSC121H1-S-20171 (2016-12-23 - 2017-02-15)</tspan></text>
 	</g>
 </g>
 	<g id="gnuplot_plot_1" ><title>LEC-0101 (enrolled)</title>
@@ -379,7 +379,7 @@
 		L487.9,77.8 L499.5,77.8 L511.2,110.5 L522.8,110.5 L534.4,143.3 L546.1,176.0 L557.7,176.0 L569.4,176.0
 		L581.0,176.0 L592.6,208.7 L604.3,208.7 L615.9,208.7 L627.6,306.8 L639.2,306.8 L650.8,306.8 L662.5,306.8
 		L674.1,339.6 L685.8,339.6 L697.4,339.6 L709.1,339.6 L720.7,339.6 L732.3,339.6 L744.0,372.3 L755.6,372.3
-		 '/>	<use xlink:href='#gpPt0' transform='translate(138.6,77.8) scale(3.75)' color='rgb(148,   0, 211)'/>
+		L767.3,372.3  '/>	<use xlink:href='#gpPt0' transform='translate(138.6,77.8) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(138.6,77.8) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(150.3,77.8) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(161.9,77.8) scale(3.75)' color='rgb(148,   0, 211)'/>
@@ -434,6 +434,7 @@
 	<use xlink:href='#gpPt0' transform='translate(732.3,339.6) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(744.0,372.3) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(755.6,372.3) scale(3.75)' color='rgb(148,   0, 211)'/>
+	<use xlink:href='#gpPt0' transform='translate(767.3,372.3) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(478.6,435.0) scale(3.75)' color='rgb(148,   0, 211)'/>
 </g>
 	</g>

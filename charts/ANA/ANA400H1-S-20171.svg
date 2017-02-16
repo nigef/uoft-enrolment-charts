@@ -310,7 +310,7 @@
 	<path stroke='black'  d='M52.5,45.1 L52.5,405.0 L778.9,405.0 L778.9,45.1 L52.5,45.1 Z  '/></g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 	<g transform="translate(415.7,25.9)" stroke="none" fill="black" font-family="Arial" font-size="10.00"  text-anchor="middle">
-		<text><tspan font-family="Arial" >ANA400H1-S-20171 (2016-12-23 - 2017-02-14)</tspan></text>
+		<text><tspan font-family="Arial" >ANA400H1-S-20171 (2016-12-23 - 2017-02-15)</tspan></text>
 	</g>
 </g>
 	<g id="gnuplot_plot_1" ><title>LEC-0101 (enrolled)</title>
@@ -327,7 +327,7 @@
 		L490.6,96.5 L502.2,96.5 L513.7,96.5 L525.2,96.5 L536.8,96.5 L548.3,96.5 L559.8,96.5 L571.4,96.5
 		L582.9,96.5 L594.4,96.5 L605.9,96.5 L617.5,96.5 L629.0,96.5 L640.5,96.5 L652.1,96.5 L663.6,96.5
 		L675.1,96.5 L686.7,96.5 L698.2,96.5 L709.7,96.5 L721.2,96.5 L732.8,96.5 L744.3,96.5 L755.8,96.5
-		 '/>	<use xlink:href='#gpPt0' transform='translate(144.7,96.5) scale(3.75)' color='rgb(148,   0, 211)'/>
+		L767.4,96.5  '/>	<use xlink:href='#gpPt0' transform='translate(144.7,96.5) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(144.7,96.5) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(156.3,96.5) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(167.8,96.5) scale(3.75)' color='rgb(148,   0, 211)'/>
@@ -382,6 +382,7 @@
 	<use xlink:href='#gpPt0' transform='translate(732.8,96.5) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(744.3,96.5) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(755.8,96.5) scale(3.75)' color='rgb(148,   0, 211)'/>
+	<use xlink:href='#gpPt0' transform='translate(767.4,96.5) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(482.1,435.0) scale(3.75)' color='rgb(148,   0, 211)'/>
 </g>
 	</g>
