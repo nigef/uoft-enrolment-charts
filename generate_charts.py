@@ -98,8 +98,10 @@ def plot_course(course_id, course_dept, sections):
 
     # Init plot for each meeting section
     plots = []
+    # datasets = ['capacity', 'enrolled', 'waitlisted']
     for section_id, section_data in sections:
-        plots.append('"-" u 1:2 t "{0} (enrolled)" w lp'.format(section_id))
+        # for dataset in datasets:
+        plots.append('"-" u 1:2 t "{0} ({1})" w lp'.format(section_id, 'enrolled'))
 
     cmds.append('plot ' + ', '.join(plots))
 
@@ -109,6 +111,7 @@ def plot_course(course_id, course_dept, sections):
         # We ignore a meeting if all of its points are just 0
         if not all(p == 0 for p in section_data):
             for i in range(len(section_data)):
+                # for j in range(len(datasets)):
                 plot_data.append('{0} {1}'.format(dates[i], section_data[i][1]))
             plot_data.append('e')
 
@@ -130,6 +133,7 @@ if __name__ == '__main__':
         os.makedirs(output_dir)
 
     # Aggregate enrolment counts for each date for every course
+    print('Parsing files...')
     file_names = get_json_files(data_folder)
     for file_name in file_names:
         # Date
@@ -140,5 +144,6 @@ if __name__ == '__main__':
         parse_file(file_path)
 
     # Generate some charts with the enrolment data
+    print('Generating charts...')
     for course_id, course_data in enrolment_data.items():
         plot_course(course_id, course_data['dept'], course_data['sections'].items())
