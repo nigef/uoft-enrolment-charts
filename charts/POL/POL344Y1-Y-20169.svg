@@ -313,7 +313,7 @@
 	<path stroke='black'  d='M52.5,45.1 L52.5,405.0 L778.9,405.0 L778.9,45.1 L52.5,45.1 Z  '/></g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 	<g transform="translate(415.7,25.9)" stroke="none" fill="black" font-family="Arial" font-size="10.00"  text-anchor="middle">
-		<text><tspan font-family="Arial" >POL344Y1-Y-20169 (2016-12-23 - 2017-02-16)</tspan></text>
+		<text><tspan font-family="Arial" >POL344Y1-Y-20169 (2016-12-23 - 2017-02-17)</tspan></text>
 	</g>
 </g>
 	<g id="gnuplot_plot_1" ><title>LEC-0101 (enrolled)</title>
@@ -330,7 +330,7 @@
 		L446.8,345.0 L457.2,345.0 L467.6,345.0 L478.0,345.0 L488.3,345.0 L498.7,345.0 L509.1,345.0 L519.5,345.0
 		L529.8,345.0 L540.2,345.0 L550.6,345.0 L561.0,345.0 L571.4,345.0 L581.7,345.0 L592.1,345.0 L602.5,345.0
 		L612.9,345.0 L623.2,345.0 L633.6,345.0 L644.0,345.0 L654.4,345.0 L664.8,345.0 L675.1,345.0 L685.5,345.0
-		L695.9,345.0 L706.3,345.0  '/>	<use xlink:href='#gpPt0' transform='translate(135.5,105.1) scale(3.75)' color='rgb(148,   0, 211)'/>
+		L695.9,345.0 L706.3,345.0 L716.6,345.0  '/>	<use xlink:href='#gpPt0' transform='translate(135.5,105.1) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(135.5,105.1) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(145.9,105.1) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(156.3,105.1) scale(3.75)' color='rgb(148,   0, 211)'/>
@@ -387,6 +387,7 @@
 	<use xlink:href='#gpPt0' transform='translate(685.5,345.0) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(695.9,345.0) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(706.3,345.0) scale(3.75)' color='rgb(148,   0, 211)'/>
+	<use xlink:href='#gpPt0' transform='translate(716.6,345.0) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(482.1,435.0) scale(3.75)' color='rgb(148,   0, 211)'/>
 </g>
 	</g>
