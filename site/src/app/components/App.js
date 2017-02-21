@@ -3,28 +3,11 @@ import Component from 'inferno-component';
 import 'whatwg-fetch';
 
 import Chart from './Chart';
+import CoursesList from './CoursesList';
 
-// var getDeptFromPath = function(path) {
-//   return path.substring(path.indexOf('/') + 1);
-// };
-
-// var getCourseFromPath = function(path) {
-//   var fileDir = path.lastIndexOf('/') + 1;
-//   var ext = path.indexOf('.svg');
-
-//   return path.substring(fileDir, ext);
-// };
-
-// if (chart.type === 'tree') {
-//   $elDept = $('<details><summary>' + getDeptFromPath(chart.path) + '</summary></details>');
-//   $elCourses.append($elDept);
-// } else if (chart.type === 'blob') {
-//   $elCourse = $('<li>').text(getCourseFromPath(chart.path));
-//   $elCourse.addClass('course');
-//   $elCourse.attr('data-chart', chart.path);
-
-//   $elDept.append($elCourse);
-// }
+const getDeptFromPath = function(path) {
+  return path.substring(path.indexOf('/') + 1);
+};
 
 export default class App extends Component {
   constructor(props) {
@@ -42,17 +25,36 @@ export default class App extends Component {
     fetch('https://api.github.com/repos/arkon/uoft-enrolment-charts/git/trees/master?recursive=1')
       .then(res => res.json())
       .then(data => {
-          const charts = data.tree.filter(item => item.path.startsWith('charts/'));
+          const categories = [];
+
+          data.tree.forEach(item => {
+            if (!item.path.startsWith('charts/')) {
+              return;
+            }
+
+            // Folder ('tree')
+            if (item.type === 'tree') {
+              categories.push({
+                name: getDeptFromPath(item.path),
+                courses: []
+              });
+            }
+
+            // Course ('blob')
+            if (item.type === 'blob') {
+              categories[categories.length - 1].courses.push(item.path);
+            }
+          });
 
           this.setState({
-            courses: charts
+            courses: categories
           });
         });
   }
 
   onClickCourse(course) {
     this.setState({
-      activeCourse: course.path
+      activeCourse: course
     });
   }
 
@@ -61,13 +63,7 @@ export default class App extends Component {
       <div>
         { this.state.activeCourse && <Chart url={this.state.activeCourse} /> }
 
-        <ul>
-          {
-            this.state.courses.map((course) =>
-              <li onClick={() => { this.onClickCourse(course); } }>{course.path}</li>
-            )
-          }
-        </ul>
+        <CoursesList data={this.state.courses} onClickCourse={this.onClickCourse} />
       </div>
     );
   }
