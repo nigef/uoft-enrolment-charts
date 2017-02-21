@@ -6,8 +6,12 @@ __pycache__/
 # pyenv
 .python-version
 
+# Node
+node_modules
+npm-debug.log*
+
 # OS stuff
 .DS_Store
 
-# Website
-/site/node_modules
+# Built website
+/site/dist

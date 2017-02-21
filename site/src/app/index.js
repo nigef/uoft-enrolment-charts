@@ -1,6 +1,15 @@
-'use strict';
+// import Inferno from 'inferno';
 
-(function() {
+// import MyComponent from './components/MyComponent';
+
+import './styles/styles.scss';
+
+// const message = "Hello world";
+
+// Inferno.render(
+//   <MyComponent message={ message } />,
+//   document.getElementById('app')
+// )
 
 var RAW_URL = 'https://cdn.rawgit.com/arkon/uoft-enrolment-charts/master/';
 
@@ -65,5 +74,3 @@ var main = function() {
 };
 
 main();
-
-})();

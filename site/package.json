@@ -9,12 +9,34 @@
   "author": "Eugene Cheung",
   "license": "MIT",
   "scripts": {
-    "deploy": "gh-pages -d src"
+    "build": "webpack -p --progress --profile --colors",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "engines": {
     "node": ">=6"
   },
+  "dependencies": {
+    "inferno": "^1.2.2",
+    "inferno-component": "^1.2.2",
+    "whatwg-fetch": "^2.0.2"
+  },
   "devDependencies": {
-    "gh-pages": "^0.12.0"
+    "autoprefixer": "^6.7.4",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-plugin-inferno": "^1.7.0",
+    "babel-plugin-inferno": "^1.9.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^2.0.0-beta.5",
+    "gh-pages": "^0.12.0",
+    "html-webpack-plugin": "^2.28.0",
+    "node-sass": "^4.5.0",
+    "postcss-loader": "^1.3.1",
+    "sass-loader": "^6.0.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^2.2.1"
   }
 }

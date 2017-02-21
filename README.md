@@ -2,6 +2,8 @@
 
 Generates charts of course enrolment numbers from data scraped by [uoft-timetable-archive][] (from the [University of Toronto Faculty of Arts and Science timetable](https://timetable.iit.artsci.utoronto.ca/)).
 
+You can see the charts on [the website](https://echeung.me/uoft-enrolment-charts/) as well.
+
 
 ## Requirements
 
