@@ -11,23 +11,15 @@ module.exports = {
 
   output: {
     path: './dist',
-    filename: 'js/[name].[hash].js',
-    chunkFilename: '[id].[hash].chunk.js'
-  },
-
-  resolve: {
-    extensions: ['.js', '.json', '.css', '.scss', '.html'],
-    alias: {
-      'app': './src/app'
-    }
+    filename: 'js/bundle.js'
   },
 
   module: {
-    rules: [
+    loaders: [
       // JS files
       {
-        test: /\.jsx?$/,
-        include: 'src',
+        test: /\.js$/,
+        exclude: 'node_modules',
         loader: 'babel-loader'
       },
 
@@ -35,8 +27,8 @@ module.exports = {
       {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: [
+          fallback: 'style-loader',
+          use: [
             {
               loader: 'css-loader',
               options: {
@@ -74,7 +66,7 @@ module.exports = {
     }),
 
     new ExtractTextPlugin({
-      filename: 'css/[name].[hash].css'
+      filename: 'css/[name].css'
     }),
 
     new webpack.optimize.UglifyJsPlugin({
