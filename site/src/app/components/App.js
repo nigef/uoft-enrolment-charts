@@ -1,6 +1,6 @@
 import Inferno from 'inferno';
 import Component from 'inferno-component';
-import 'whatwg-fetch';
+import fetch from 'unfetch'
 
 import Chart from './Chart';
 import CoursesList from './CoursesList';
