@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -10,7 +11,7 @@ module.exports = {
   },
 
   output: {
-    path: './dist',
+    path: path.resolve(__dirname, 'site/dist'),
     filename: 'js/bundle.js'
   },
 
@@ -81,6 +82,15 @@ module.exports = {
 
     new CopyWebpackPlugin([{
       from: 'src/public'
-    }])
-  ]
+    }]),
+
+    new webpack.HotModuleReplacementPlugin()
+  ],
+  devServer: {
+    contentBase: 'dist/',
+    port: 8080,
+    noInfo: false,
+    hot: true,
+    inline: true
+  }
 };
