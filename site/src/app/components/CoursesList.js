@@ -3,11 +3,11 @@ import Component from 'inferno-component';
 
 import CoursesListCategory from './CoursesListCategory';
 
-export default function CoursesList({ data, onClickCourse }) {
+export default function CoursesList({ data }) {
   return (
     <div>
       {
-        data.map(dept => <CoursesListCategory data={dept} onClickCourse={onClickCourse} />)
+        data.map(dept => <CoursesListCategory data={dept} />)
       }
     </div>
   );

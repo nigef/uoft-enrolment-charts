@@ -1,28 +1,31 @@
 import { render } from 'inferno';
-import { Router, Route } from 'inferno-router';
-import createBrowserHistory from 'history/createBrowserHistory';
+import { Router, IndexRoute, Route } from 'inferno-router';
+import createHashHistory from 'history/createHashHistory';
 
-import App from './components/App';
-import About from './components/About';
+import Home from './components/Home';
+import Course from './components/Course';
 
 import './styles/styles.scss';
 
-if (module.hot) {
+const devMode = process.env.NODE_ENV === 'development' && module.hot;
+
+if (devMode) {
   require('inferno-devtools');
 }
 
-const browserHistory = createBrowserHistory();
+const hashHistory = createHashHistory();
 
 const routes = (
-  <Router history={ browserHistory }>
-    <Route component={ App }>
-      <Route path="/about" component={ About } />
+  <Router history={ hashHistory }>
+    <IndexRoute component={ Home } />
+    <Route path="courses" component={ Course }>
+      <Route path="course/:dept/:course" />
     </Route>
   </Router>
 );
 
 render(routes, document.getElementById('app'));
 
-if (module.hot) {
+if (devMode) {
   module.hot.accept()
 }

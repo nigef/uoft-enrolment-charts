@@ -26,7 +26,7 @@ export default class App extends Component {
         <h2 onClick={this.onToggle}>{this.state.collapsed ? '>' : 'v'} {this.props.data.name}</h2>
         {
           !this.state.collapsed &&
-          this.props.data.courses.map(course => <CoursesListItem data={course} onClickCourse={this.props.onClickCourse} />)
+          this.props.data.courses.map(course => <CoursesListItem course={course} />)
         }
       </div>
     );

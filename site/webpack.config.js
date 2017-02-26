@@ -11,7 +11,7 @@ module.exports = {
   },
 
   output: {
-    path: path.resolve(__dirname, 'site/dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'js/bundle.js'
   },
 
@@ -56,9 +56,7 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
 
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
-      }
+      'process.env.NODE_ENV': process.env.NODE_ENV
     }),
 
     new HtmlWebpackPlugin({
