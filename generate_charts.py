@@ -16,7 +16,7 @@ def get_json_files(dir_path):
 
     (str) -> [str]
     """
-    return [f for f in os.listdir(dir_path) if f.endswith('.json')]
+    return [f for f in os.listdir(dir_path) if f.endswith('.json') and f != 'latest.json']
 
 def file_name_to_iso(file_name):
     """
