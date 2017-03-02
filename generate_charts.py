@@ -16,7 +16,7 @@ def get_json_files(dir_path):
 
     (str) -> [str]
     """
-    return [f for f in os.listdir(dir_path) if f.endswith('.json') and f != 'latest.json']
+    return [f for f in os.listdir(dir_path) if f.endswith('.json') and not f.endswith('latest.json')]
 
 def file_name_to_iso(file_name):
     """
@@ -49,7 +49,7 @@ def parse_file(file_path):
 
             # Fetch all enrolment data for each meeting section
             for meeting_id, meeting_data in course_data['meetings'].items():
-                if not 'actualEnrolment' in meeting_data:
+                if not 'enrollmentCapacity' in meeting_data or meeting_data['enrollmentCapacity'] is None:
                     continue
 
                 if not course_id in enrolment_data:
