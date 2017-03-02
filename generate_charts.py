@@ -49,7 +49,7 @@ def parse_file(file_path):
 
             # Fetch all enrolment data for each meeting section
             for meeting_id, meeting_data in course_data['meetings'].items():
-                if not 'enrollmentCapacity' in meeting_data or meeting_data['enrollmentCapacity'] is None:
+                if not 'enrollmentCapacity' in meeting_data:
                     continue
 
                 if not course_id in enrolment_data:
@@ -60,9 +60,9 @@ def parse_file(file_path):
                 if not meeting_id in enrolment_data[course_id]['sections']:
                     enrolment_data[course_id]['sections'][meeting_id] = []
 
-                space     = int(meeting_data['enrollmentCapacity'])
-                enrolment = int(meeting_data['actualEnrolment'])
-                waitlist  = int(meeting_data['actualWaitlist'])
+                space     = int(meeting_data['enrollmentCapacity'] or 0)
+                enrolment = int(meeting_data['actualEnrolment'] or 0)
+                waitlist  = int(meeting_data['actualWaitlist'] or 0)
                 enrolment_data[course_id]['sections'][meeting_id].append((space, enrolment, waitlist))
 
 def gnuplot_exec(cmds, data):
