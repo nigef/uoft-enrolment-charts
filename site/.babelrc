@@ -1,9 +1,0 @@
-{
-  "presets": [
-    ["es2015", { "loose": true, "modules": false }]
-  ],
-  "plugins": [
-    "syntax-jsx",
-    ["inferno", { "imports": true }]
-  ]
-}

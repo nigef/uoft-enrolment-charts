@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <meta charset="UTF-8">
   <title>UofT Enrolment Charts</title>
+
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <h1>UofT Enrolment Charts</h1>
 
-  <div id="app"></div>
+  <div id="chart"></div>
+
+  <ul id="courses">
+    Loading...
+  </ul>
 
   <p>
     Charts generated with <a href="https://github.com/arkon/uoft-enrolment-charts">uoft-enrolment charts</a> / data scraped with <a href="https://github.com/freeatnet/uoft-timetable-archive">uoft-timetable-archive</a>.
   </p>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
