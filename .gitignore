@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# VS Code
+.vscode/
+
 # pyenv
 .python-version
 
@@ -14,4 +17,5 @@ npm-debug.log*
 .DS_Store
 
 # Built website
-/site/dist
+/site/.sass-cache
+/site/build

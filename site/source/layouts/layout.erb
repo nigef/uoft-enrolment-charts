@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title><%= current_page.data.title || "UofT Enrolment Charts" %></title>
+
+    <%= stylesheet_link_tag "site" %>
+  </head>
+
+  <body class="<%= page_classes %>">
+    <%= yield %>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <%= javascript_include_tag "site" %>
+  </body>
+</html>
