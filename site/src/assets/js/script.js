@@ -2,7 +2,7 @@
 
 (function() {
 
-var RAW_URL = 'https://cdn.rawgit.com/arkon/uoft-enrolment-charts/master/';
+var RAW_URL = 'https://cdn.rawgit.com/arkon/uoft-enrolment-charts/';
 
 var getRepoTree = function(cb) {
   $.getJSON('https://api.github.com/repos/arkon/uoft-enrolment-charts/git/trees/master?recursive=1', cb);
@@ -36,7 +36,7 @@ var getCharts = function(data) {
     } else if (chart.type === 'blob') {
       $elCourse = $('<li>').text(getCourseFromPath(chart.path));
       $elCourse.addClass('course');
-      $elCourse.attr('data-chart', chart.path);
+      $elCourse.attr('data-chart', data.sha + '/' + chart.path);
 
       $elDept.append($elCourse);
     }
