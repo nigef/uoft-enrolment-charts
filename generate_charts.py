@@ -41,6 +41,7 @@ def parse_file(file_path):
 
         # Every course
         for course_id, course_data in data.items():
+            course_id = "".join(course_id.split('-')[:2])
             # Ensure subdirectory exists for department
             department = course_data['org']
             department_dir = os.path.join(output_dir, department)
@@ -49,9 +50,6 @@ def parse_file(file_path):
 
             # Fetch all enrolment data for each meeting section
             for meeting_id, meeting_data in course_data['meetings'].items():
-                if not 'enrollmentCapacity' in meeting_data:
-                    continue
-
                 if not course_id in enrolment_data:
                     enrolment_data[course_id] = {}
                     enrolment_data[course_id]['dept'] = department
@@ -60,9 +58,9 @@ def parse_file(file_path):
                 if not meeting_id in enrolment_data[course_id]['sections']:
                     enrolment_data[course_id]['sections'][meeting_id] = []
 
-                space     = int(meeting_data['enrollmentCapacity'] or 0)
-                enrolment = int(meeting_data['actualEnrolment'] or 0)
-                waitlist  = int(meeting_data['actualWaitlist'] or 0)
+                space     = int(meeting_data.get('enrollmentCapacity') or 0)
+                enrolment = int(meeting_data.get('actualEnrolment') or 0)
+                waitlist  = int(meeting_data.get('actualWaitlist') or 0)
                 enrolment_data[course_id]['sections'][meeting_id].append((space, enrolment, waitlist))
 
 def gnuplot_exec(cmds, data):
@@ -111,7 +109,6 @@ def plot_course(course_id, course_dept, sections):
         # We ignore a meeting if all of its points are just 0
         if not all(p == 0 for p in section_data):
             for i in range(len(section_data)):
-                # for j in range(len(datasets)):
                 plot_data.append('{0} {1}'.format(dates[i], section_data[i][1]))
             plot_data.append('e')
 
