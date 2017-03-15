@@ -296,7 +296,7 @@
 	<path stroke='black'  d='M45.5,45.1 L45.5,405.0 L778.9,405.0 L778.9,45.1 L45.5,45.1 Z  '/></g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 	<g transform="translate(412.2,25.9)" stroke="none" fill="black" font-family="Arial" font-size="10.00"  text-anchor="middle">
-		<text><tspan font-family="Arial" >SMC480H1S (2016-12-23 - 2017-03-13)</tspan></text>
+		<text><tspan font-family="Arial" >SMC480H1S (2016-12-23 - 2017-03-14)</tspan></text>
 	</g>
 </g>
 	<g id="gnuplot_plot_1" ><title>LEC-0101 (enrolled)</title>
@@ -316,7 +316,7 @@
 		L509.5,81.1 L517.0,81.1 L524.5,81.1 L531.9,81.1 L539.4,81.1 L546.9,81.1 L554.4,81.1 L561.9,81.1
 		L569.4,81.1 L576.8,81.1 L584.3,81.1 L591.8,81.1 L599.3,81.1 L606.8,81.1 L614.3,81.1 L621.7,81.1
 		L629.2,81.1 L636.7,81.1 L644.2,81.1 L651.7,81.1 L666.6,81.1 L674.1,81.1 L681.6,81.1 L689.1,81.1
-		L696.6,81.1 L704.1,81.1  '/>	<use xlink:href='#gpPt0' transform='translate(105.4,369.0) scale(3.75)' color='rgb(148,   0, 211)'/>
+		L696.6,81.1 L704.1,81.1 L711.5,81.1  '/>	<use xlink:href='#gpPt0' transform='translate(105.4,369.0) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(105.4,369.0) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(112.9,369.0) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(120.3,369.0) scale(3.75)' color='rgb(148,   0, 211)'/>
@@ -397,6 +397,7 @@
 	<use xlink:href='#gpPt0' transform='translate(689.1,81.1) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(696.6,81.1) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(704.1,81.1) scale(3.75)' color='rgb(148,   0, 211)'/>
+	<use xlink:href='#gpPt0' transform='translate(711.5,81.1) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(478.6,435.0) scale(3.75)' color='rgb(148,   0, 211)'/>
 </g>
 	</g>

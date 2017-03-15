@@ -296,7 +296,7 @@
 	<path stroke='black'  d='M45.5,45.1 L45.5,405.0 L778.9,405.0 L778.9,45.1 L45.5,45.1 Z  '/></g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 	<g transform="translate(412.2,25.9)" stroke="none" fill="black" font-family="Arial" font-size="10.00"  text-anchor="middle">
-		<text><tspan font-family="Arial" >SOC395H1S (2016-12-23 - 2017-03-13)</tspan></text>
+		<text><tspan font-family="Arial" >SOC395H1S (2016-12-23 - 2017-03-14)</tspan></text>
 	</g>
 </g>
 	<g id="gnuplot_plot_1" ><title>LEC-0101 (enrolled)</title>
@@ -316,7 +316,7 @@
 		L509.5,196.3 L517.0,196.3 L524.5,196.3 L531.9,196.3 L539.4,196.3 L546.9,196.3 L554.4,196.3 L561.9,196.3
 		L569.4,196.3 L576.8,196.3 L584.3,196.3 L591.8,196.3 L599.3,196.3 L606.8,196.3 L614.3,196.3 L621.7,196.3
 		L629.2,196.3 L636.7,196.3 L644.2,196.3 L651.7,196.3 L666.6,196.3 L674.1,196.3 L681.6,196.3 L689.1,196.3
-		L696.6,196.3 L704.1,196.3  '/>	<use xlink:href='#gpPt0' transform='translate(105.4,369.0) scale(3.75)' color='rgb(148,   0, 211)'/>
+		L696.6,196.3 L704.1,196.3 L711.5,196.3  '/>	<use xlink:href='#gpPt0' transform='translate(105.4,369.0) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(105.4,369.0) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(112.9,354.6) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(120.3,354.6) scale(3.75)' color='rgb(148,   0, 211)'/>
@@ -397,6 +397,7 @@
 	<use xlink:href='#gpPt0' transform='translate(689.1,196.3) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(696.6,196.3) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(704.1,196.3) scale(3.75)' color='rgb(148,   0, 211)'/>
+	<use xlink:href='#gpPt0' transform='translate(711.5,196.3) scale(3.75)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt0' transform='translate(478.6,435.0) scale(3.75)' color='rgb(148,   0, 211)'/>
 </g>
 	</g>
