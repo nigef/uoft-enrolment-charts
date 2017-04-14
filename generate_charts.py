@@ -96,21 +96,21 @@ def plot_course(course_id, course_dept, sections):
 
     # Init plot for each meeting section
     plots = []
+    plot_data = []
     # datasets = ['capacity', 'enrolled', 'waitlisted']
     for section_id, section_data in sections:
         # for dataset in datasets:
-        plots.append('"-" u 1:2 t "{0} ({1})" w lp'.format(section_id, 'enrolled'))
-
-    cmds.append('plot ' + ', '.join(plots))
-
-    # Add plot data
-    plot_data = []
-    for section_id, section_data in sections:
         # We ignore a meeting if all of its points are just 0
         if not all(p == 0 for p in section_data):
+            # Plot label
+            plots.append('"-" u 1:2 t "{0} ({1})" w lp'.format(section_id, 'enrolled'))
+
+            # Plot data
             for i in range(len(section_data)):
                 plot_data.append('{0} {1}'.format(dates[i], section_data[i][1]))
             plot_data.append('e')
+
+    cmds.append('plot ' + ', '.join(plots))
 
     if len(plot_data) > 0:
         gnuplot_exec(cmds, plot_data)
