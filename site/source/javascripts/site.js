@@ -7,4 +7,5 @@ $(document).on('click', '.course', function(e) {
   elImg.src = courseSvg;
 
   $('#chart').html(elImg);
+  window.scrollTo(0, 0);
 });

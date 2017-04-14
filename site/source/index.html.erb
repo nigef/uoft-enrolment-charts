@@ -6,20 +6,22 @@ title: UofT Enrolment Charts
 
 <div id="chart"></div>
 
-<ul>
+<section>
   <% data.charts[0].contents.each do |dir| %>
     <details>
       <summary><%= dir.name %></summary>
-      <% dir.contents.each do |file| %>
-        <li
-          class="course"
-          data-chart="https://cdn.rawgit.com/arkon/uoft-enrolment-charts/<%= data.commit %>/charts/<%= dir.name %>/<%= file.name %>">
-          <%= file.name.chomp('.svg') %>
-        </li>
-      <% end %>
+        <ul>
+          <% dir.contents.each do |file| %>
+            <li
+              class="course"
+              data-chart="https://cdn.rawgit.com/arkon/uoft-enrolment-charts/<%= data.commit %>/charts/<%= dir.name %>/<%= file.name %>">
+              <%= file.name.chomp('.svg') %>
+            </li>
+          <% end %>
+        </ul>
     </details>
   <% end %>
-</ul>
+</section>
 
 <p>
   Charts generated with <a href="https://github.com/arkon/uoft-enrolment-charts">uoft-enrolment charts</a> / data scraped with <a href="https://github.com/freeatnet/uoft-timetable-archive">uoft-timetable-archive</a>.
