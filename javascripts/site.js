@@ -1,0 +1,1 @@
+"use strict";$(document).on("click",".course",function(t){var c=t.currentTarget.dataset.chart,e=document.createElement("IMG");e.src=c,$("#chart").html(e),window.scrollTo(0,0)});
