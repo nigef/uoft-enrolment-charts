@@ -19,3 +19,5 @@ npm-debug.log*
 # Built website
 /site/.sass-cache
 /site/build
+/site/data/charts.json
+/site/data/commit.yml

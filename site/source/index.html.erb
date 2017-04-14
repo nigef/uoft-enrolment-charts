@@ -6,8 +6,19 @@ title: UofT Enrolment Charts
 
 <div id="chart"></div>
 
-<ul id="courses">
-  Loading...
+<ul>
+  <% data.charts[0].contents.each do |dir| %>
+    <details>
+      <summary><%= dir.name %></summary>
+      <% dir.contents.each do |file| %>
+        <li
+          class="course"
+          data-chart="https://cdn.rawgit.com/arkon/uoft-enrolment-charts/<%= data.commit %>/charts/<%= dir.name %>/<%= file.name %>">
+          <%= file.name.chomp('.svg') %>
+        </li>
+      <% end %>
+    </details>
+  <% end %>
 </ul>
 
 <p>
