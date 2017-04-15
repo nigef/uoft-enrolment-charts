@@ -28,6 +28,7 @@ GEM
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
     hashie (3.5.5)
+    htmlcompressor (0.2.0)
     i18n (0.7.0)
     kramdown (1.13.2)
     listen (3.0.8)
@@ -71,6 +72,9 @@ GEM
       middleman-core (>= 3.2)
       net-sftp
       ptools
+    middleman-minify-html (3.4.1)
+      htmlcompressor (~> 0.2.0)
+      middleman-core (>= 3.2)
     minitest (5.10.1)
     net-sftp (2.1.2)
       net-ssh (>= 2.6.5)
@@ -104,6 +108,7 @@ PLATFORMS
 DEPENDENCIES
   middleman (~> 4.2)
   middleman-deploy (~> 2.0.0.pre.alpha)
+  middleman-minify-html
   tzinfo-data
   wdm (~> 0.1.0)
 
