@@ -23,24 +23,21 @@ a {
 }
 
 section {
-  column-count: 3;
-  font-family: Monaco,"Courier New",monospace;
-  font-size: 14px;
-  color: #60e859;
   background-color: #333;
-  padding: 10px;
   box-shadow: inset 0 1px 15px rgba(0, 0, 0, 0.8), 0 1px 0 rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.5);
+  color: #60e859;
+  font-size: 0.9rem;
+  padding: 1.6rem;
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
 }
 
 details {
   cursor: pointer;
-  padding: 2px 20px;
 }
 
 li {
-  &.course {
-
-  }
   &.course:hover {
     @extend .options-hover;
   }
@@ -53,7 +50,8 @@ summary {
 }
 
 .options-hover {
-  color: white;
-  padding-left: 2px;
-  transition: padding 100ms;
+  color: #dcdcdc;
+  padding-left: 0.2rem;
+  transform: translateX(0.2rem);
+  transition: transform 0.2s;
 }
