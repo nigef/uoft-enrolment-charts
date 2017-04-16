@@ -9,6 +9,7 @@ You can see the charts on [the website](https://echeung.me/uoft-enrolment-charts
 
 - [Python](https://www.python.org/)
 - [Gnuplot](http://gnuplot.info/)
+- [Tree](http://brewformulas.org/Tree)
 
 
 ## Cron jobs

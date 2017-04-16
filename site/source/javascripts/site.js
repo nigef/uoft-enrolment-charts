@@ -1,11 +1,16 @@
 'use strict';
 
-$(document).on('click', '.course', function(e) {
-  var courseSvg = e.currentTarget.dataset.chart;
+(function () {
+  var elChart = document.getElementById('chart');
 
-  var elImg = document.createElement('IMG');
-  elImg.src = courseSvg;
+  document.body.addEventListener('click', function (e) {
+    if (e.target.nodeName === 'LI' && e.target.classList.contains('course')) {
+      var elImg = document.createElement('IMG');
+      elImg.src = e.target.dataset.chart;
 
-  $('#chart').html(elImg);
-  window.scrollTo(0, 0);
-});
+      elChart.innerHTML = '';
+      elChart.appendChild(elImg);
+      window.scrollTo(0, 0);
+    }
+  });
+})();
